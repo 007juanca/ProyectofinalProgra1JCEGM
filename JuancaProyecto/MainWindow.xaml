@@ -1,0 +1,53 @@
+﻿<Window x:Class="JuancaProyecto.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Inventario de Departamentos" Height="450" Width="1200">
+    <Grid Margin="22,0,0,0" Background="#FF2F2E2E">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="359*"/>
+            <ColumnDefinition Width="230*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" MinHeight="70" />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="2" Margin="188,48,320,0" RenderTransformOrigin="0.482,0.487" VerticalAlignment="Top" Height="168">
+            <StackPanel.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.072"/>
+                    <TranslateTransform X="-0.003" Y="0.008"/>
+                </TransformGroup>
+            </StackPanel.RenderTransform>
+            <Button x:Name="BtnAgregar" Content="Agregar" Click="BtnAgregar_Click" Height="51" Width="212" FontFamily="Arial Black" FontWeight="Bold" Background="#FF565151" BorderBrush="#FF2F2E2E" Foreground="White" FontSize="14" />
+            <Button x:Name="BtnEliminar" Content="Eliminar" Click="BtnEliminar_Click" Height="47" Width="208" Background="#FF565151" BorderBrush="#FF565151" Foreground="White" FontFamily="Arial Black" FontSize="14" FontWeight="Bold" />
+            <Button x:Name="BtnActualizar" Content="Actualizar" Click="BtnActualizar_Click" Height="47" Width="209" Foreground="White" Background="#FF565151" FontFamily="Arial Black" FontWeight="Bold" BorderBrush="#FF565151" FontSize="14" />
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Margin="5,5,10,322" Grid.ColumnSpan="2" Grid.RowSpan="2">
+            <TextBlock Text="ID:" VerticalAlignment="Center" Margin="5" x:Name="TxtID" FontFamily="Arial Black" Foreground="White" FontSize="16"/>
+            <TextBox Width="57" Margin="5" x:Name="TxtIDValue" Height="34" />
+            <TextBlock Text="Nombre:" VerticalAlignment="Center" Margin="5" FontFamily="Arial Black" FontSize="16" Foreground="White" />
+            <TextBox Width="200" Margin="5" x:Name="TxtNombre" Height="33" />
+            <TextBlock Text="Ubicación:" VerticalAlignment="Center" Margin="5" FontFamily="Arial Black" Foreground="White" FontSize="16" />
+            <TextBox Width="134" x:Name="TxtUbicacion" Height="34" />
+            <TextBlock Text="Cantidad:" VerticalAlignment="Center" Margin="5" Foreground="White" FontFamily="Arial Black" FontSize="16" />
+            <TextBox Width="87" Margin="5" x:Name="TxtCantidad" Height="33" />
+            <TextBlock Text="Descripción:" VerticalAlignment="Center" Margin="5" Foreground="White" FontFamily="Arial Black" FontSize="16" />
+            <TextBox Width="196" Margin="5" x:Name="TxtDescripcion" Height="36" />
+        </StackPanel>
+
+        <DataGrid Grid.Row="2" Margin="432,42,28,15" AutoGenerateColumns="False" x:Name="DepartamentosDataGrid" SelectionMode="Single" SelectionUnit="FullRow" SelectionChanged="DepartamentosDataGrid_SelectionChanged" Grid.ColumnSpan="2">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID}" />
+                <DataGridTextColumn Header="Nombre" Binding="{Binding Nombre}" />
+                <DataGridTextColumn Header="Ubicación" Binding="{Binding Ubicacion}" />
+                <DataGridTextColumn Header="Cantidad" Binding="{Binding Cantidad}" />
+                <DataGridTextColumn Header="Descripción" Binding="{Binding Descripcion}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
